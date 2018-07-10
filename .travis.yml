@@ -3,7 +3,7 @@ jdk:
 - oraclejdk8
 deploy:
   provider: heroku
-  strategy: git
+  skip_cleanup: true
   api_key:
     secure: Sfx+QdW+pvM7MIsgId9hRmGnhOHGwEYwq6O6g/nfnkFCy05tuohuLBqkmAoFb1yIiHxV05JsoQuJPRKYJfTzfiJVNlBgfx5iqjLv6bMpAt/KqKUk0lJMuv/ATr1S+jcT3KmMxGtTefyBVgp/pABcA8wd4bGs2pye+zyK69SsgPJuvwhCnCryA/F1LLcH6chQFn4dFE+P/9nSs0mzxODa3DSxmZgbXuiKBUIdnOMMXDwCUl7wyU+s+Bz/zzJgOrQDX/wtOkTDuPPMISj3FYzr9Gl6D/SWqGph1mD8OFq4dzlDC+68w3jjDmWAutunTDHfeif6f46218VWEx2+mAR8RXaoPAE1DP/9KfZrAY3UizpsPggUrN3qpVWrLYjg7/W32SFGum4BySx9HT1BsvMXyLQyy1OPL1zVoVZKm07PXewx/OLl4L5DAI4ZwoSj2xF8WAQZGBk5qA4Txa1N1fUZlhYBZc+k+4N7mcikTJtWBrsAOmXfNkSicXW3F0V2JXNrBVRKQwCQV5g+rAcpqYEintjPaMzEFhn66b19PcXzgOG2kWCJxSlx/zXfQwY5u5Moijn1Mq164m5GA98vg/mnMDuoj2cw2qGaND85OUH/e6UDKOo+5dGM56N+9IUABp9GP1+GDx2cUo8sALwhrUQNg7tvQ379PhhOf8RBjOyWz0Q=
   app: store-poc
