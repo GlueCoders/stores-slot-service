@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.Response;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -39,12 +40,11 @@ public class Stores {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
-    @GetMapping(path = "/{storeId}/slots", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Slot>> getSlotsForStore(@PathVariable("storeId") String storeId){
-        List<Slot> slots = Optional.ofNullable(com.gluecoders.tesco.hackathon.storeslots.data.Stores.getStore(storeId))
-                .map(Store::getSlots)
-                .orElse(new ArrayList<>());
-        return ResponseEntity.ok(slots);
+    @GetMapping(path = "/{storeId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Store> getStore(@PathVariable("storeId") String storeId){
+        return  Optional.ofNullable(com.gluecoders.tesco.hackathon.storeslots.data.Stores.getStore(storeId))
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
 }
