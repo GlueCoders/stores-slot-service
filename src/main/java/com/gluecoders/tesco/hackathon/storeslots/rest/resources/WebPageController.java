@@ -43,4 +43,11 @@ public class WebPageController {
 		return "storeSlot";
 	}
 	
+	@RequestMapping("/slotconfirmation")
+	public String openSlotConfirmationPage(Map<String, Object> model) {
+		log.info("Loading Store Slot Page");
+		//model.put("message", "abcd");
+		return "slotConfirmation";
+	}
+	
 }

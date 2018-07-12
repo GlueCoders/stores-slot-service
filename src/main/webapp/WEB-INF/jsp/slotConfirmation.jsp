@@ -38,49 +38,40 @@
 </head>
 <body>
 
-	<h1>Store Token Page</h1>
+	<h1>Slot Confirmation</h1>
 
 	<div id="container">
-		<div id="storeInfo">
-		
-		
-		</div>		 
-		<div id="slots">
-			<!-- <div class="slot">			
-			</div>		
-			<div class="slot">
-			</div>
-			<div class="slot">
-			</div>
-			<div class="slot">
-			</div>
-			<div class="slot">						
-			</div>-->		
-		</div>		
+		 <div id="slotConfiramtion">		 		
+		 </div>
+		 <div id="QRCode">
+		 	 
+		 </div>
 	</div>
 
 	<script type="text/javascript" src="static/js/jquery/jquery.min.js"></script>
 
 	<script type="text/javascript">
 	$(document).ready(function () {
-		var id = getQueryStringValue("id");		 
-	   getStoreSlotInfo(id);
-
+		var id = getQueryStringValue("id");
+		var timeslot = getQueryStringValue("timeslot");	
+		alert(id + "  " + timeslot);
+	   	getQRCode(id, timeslot);
 	});
 	
-	function getStoreSlotInfo(id) {
-		//alert("fetching slots")
+	function getQRCode(id, timeslot) {
+		alert("fetching QR Code")
 		 $.ajax({
 		        type: "GET",
 		        contentType: "application/json",
-		        url: "/stores/" + id ,
+		        url: "/stores/" + id + "/book?slotTime=" + timeslot,
 		        timeout: 600000,
 		        success: function (data) {	   
 		        	//alert(data);
 		            console.log("response : ", data);
-		           	//alert(data);
-		           	showStoreInfo(data.name, data.formattedAddress, "12345");
-		            showSlots(data);		             		           		          		            		            
+		           	alert(data);
+		           	//showStoreInfo(data.name, data.formattedAddress, "12345");
+		            //showSlots(data);	
+		            showQRCode(data);
 		        },
 		        error: function (e) {	          
 		            console.log("ERROR : ", e);	          
@@ -88,12 +79,17 @@
 		    });
 	}
 	
+	function showQRCode(data) {
+		//var finalData = "data:image/png;base64," + data;
+		var html = "<img alt='qrcode' src='"+ finalData +"'>";
+		$("#QRCode").html(html);
+	}
+	
 	function showSlots(data) {
-		//alert(data.slots.length);
+		alert(data.slots.length);
 		var slotsHtml = "";
 		for (i = 0; i < data.slots.length; i++) { 
 			var url = "/stores/" + data.id + "/book?slotTime=" + data.slots[i].timeSlot;
-			//var url = "/slotconfirmation?id=" + data.id + "&timeslot=" + data.slots[i].timeSlot;
        	 	var slot = "<div class='slot'><span>" + data.slots[i].timeSlot + "</span><br><span>capacity:" + data.slots[i].capacity+ "</span><br><span>booked:" + data.slots[i].booked + "</span><br><span><a href='" + url + "'>Book Slot</a></span></div>";
        	 	slotsHtml += slot;
         }		
