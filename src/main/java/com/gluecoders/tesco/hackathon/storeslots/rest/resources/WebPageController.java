@@ -23,17 +23,24 @@ public class WebPageController {
 	}*/
 	
 	@RequestMapping("/home")
-	public String home(Map<String, Object> model) {
+	public String openHomePage(Map<String, Object> model) {
 		log.info("Welcome to Store Channel App");
 		model.put("message", "abcd");
 		return "home";
 	}
 		
 	@RequestMapping("/storelocator")
-	public String storeLocator(Map<String, Object> model) {
+	public String openStoreLocatorPage(Map<String, Object> model) {
 		log.info("Loading Store Locator Page");
 		//model.put("message", "abcd");
 		return "storeLocator";
+	}
+	
+	@RequestMapping("/storeslot")
+	public String openStoreSlotPage(Map<String, Object> model) {
+		log.info("Loading Store Slot Page");
+		//model.put("message", "abcd");
+		return "storeSlot";
 	}
 	
 }

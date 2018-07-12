@@ -7,10 +7,24 @@
 <title>Insert title here</title>
 
 <style>
+
+#container {
+	width: 100%;
+	overflow: hidden;
+	margin: 10px;
+}
+
+#form {
+	margin:10px;
+}
+#StoreInfo {
+	margin-left: 620px;
+}
 /* Set the size of the div element that contains the map */
-#map {
+#map {	
 	height: 400px; /* The height is 400 pixels */
-	width: 100%; /* The width is the width of the web page */
+	width: 600px; /* The width is the width of the web page */
+	float: left
 }
 </style>
 </head>
@@ -26,21 +40,29 @@
 			<br> <input type="button" value="search store" onclick="getStores(12345);" />
 
 		</div>
-
+				
 		<div id="map"></div>
+		
+		<div id="StoreInfo">
+			 
+		</div>
+		
 
 	</div>
 
 	<script>
 // Initialize and add the map
+var map;
+
 function initMap() {
   // The location of Uluru
-  var uluru = {lat: -25.344, lng: 131.036};
+  var uluru = {lat: 51.506665, lng: -0.127816};
+  var uluru2 = {lat: -50.76891, lng: 6.11499};
   // The map, centered at Uluru
-  var map = new google.maps.Map(
-  document.getElementById('map'), {zoom: 4, center: uluru});
+  map = new google.maps.Map(document.getElementById('map'), {zoom: 13, center: uluru});
   // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
+  //var marker = new google.maps.Marker({position: uluru, map: map});
+  //var marker2 = new google.maps.Marker({position: uluru2, map: map});
 }
     </script>
 	<!--Load the API from the specified URL
@@ -59,33 +81,56 @@ function initMap() {
 	
 	
 	function getStores(pincode) {
-		alert("hi");
+		//alert("hi");
 	    $.ajax({
 	        type: "GET",
 	        contentType: "application/json",
-	        url: "/storelocatorjson",
+	        url: "/stores/" + pincode,
 	        timeout: 600000,
 	        success: function (data) {	   
 	        	//alert(data);
 	            console.log("response : ", data);
-	            alert(data);
-	            /* for (i = 0; i < data.length; i++) {  
+	           // alert(data);
+	            //var myArr = JSON.parse(data);
+	            //alert(myArr[0].name + "  " + myArr[0].geo.latitude);
+	              var myArr = data;            	       
+	              var infowindow = new google.maps.InfoWindow();
+
+	              var marker, i;
+	            
+	            
+	            for (i = 0; i < myArr.length; i++) {  
+	            	//alert(myArr[i].geo.latitude + "  " + myArr[i].geo.longitude);
 	                marker = new google.maps.Marker({
-	                  position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+	                  position: new google.maps.LatLng(myArr[i].geo.latitude, myArr[i].geo.longitude),
 	                  map: map
 	                });
 
 	                google.maps.event.addListener(marker, 'click', (function(marker, i) {
 	                  return function() {
-	                    infowindow.setContent(locations[i][0]);
+	                    infowindow.setContent(myArr[i].name);
 	                    infowindow.open(map, marker);
+	                    showStoreInfo(myArr[i].name, myArr[i].formattedAddress, "dummypincode");
 	                  }
-	                })(marker, i)); */
+	                })(marker, i)); 
+	            }
 	        },
 	        error: function (e) {	          
 	            console.log("ERROR : ", e);	          
 	        }
 	    });
+	}
+	
+	function showStoreInfo(storeName, address, pincode) {
+		var storeNameHtml = "<span>" + storeName + "</span><br>";
+		var addressHtml = "<span>" + address + "</span><br>";
+		//var pincodeHtml = "<span>" + pincode + "</span><br>";
+		var chooseStoreLink = "<span><a href='/storeslot'>Select Store</a> </span><br>";
+		
+		var finalHtml = storeNameHtml + addressHtml + chooseStoreLink;
+		
+		$("#StoreInfo").html(finalHtml);
+		
 	}
 	
 	</script>

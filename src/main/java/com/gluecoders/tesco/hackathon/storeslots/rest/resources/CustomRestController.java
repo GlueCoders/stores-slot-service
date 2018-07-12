@@ -14,7 +14,7 @@ public class CustomRestController {
 
 	@RequestMapping(value = "/storelocatorjson", method = RequestMethod.GET)
 	public String fetchPlanogramFromApi() {
-		final String uri = "http://localhost:8080/getmockstores";
+		final String uri = "/getmockstores";
 
 		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.getForObject(uri, String.class);
