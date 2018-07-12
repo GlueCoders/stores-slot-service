@@ -10,6 +10,14 @@
 #form {
 	margin:10px;
 }
+
+.div-group {
+    margin-bottom: 15px;
+    float: left;
+    margin-right: 1px;
+    margin-left: 15px;
+}
+
 /* #StoreInfo {
 	margin-left: 620px;
 } */
@@ -28,11 +36,13 @@
 	
 	<div class="row" style="padding-bottom:10px">
 		<form class = "form-inline" onSubmit= "return false;">
-			<div class="form-group">
-			    <label for="pincode">Enter PinCode:</label>
-			    <input type="text" class="form-control" id="pincode" name="pincode">
+			<!-- <div class="div-group">
+				<label for="pincode">Enter PinCode:</label>
+			</div>-->
+			<div class="div-group">			    
+			    <input type="text"  class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode">
 			 </div>
-			 <div class="form-group">
+			 <div class="div-group">
 			 	<button class="btn btn-default" onclick="getStores(12345);">Search Store</button>
 			 </div>
 		</form>
@@ -122,7 +132,7 @@ function initMap() {
 	function showStoreInfo(storeName, address, id) {
 		//alert("id: " + id);
 		var storeNameHtml = "<span>" + storeName + "</span><br>";
-		var addressHtml = "<span>" + address + "</span><br><br>";
+		var addressHtml = "<span>" + address + "</span><br>";
 		//var pincodeHtml = "<span>" + pincode + "</span><br>";
 		var chooseStoreLink = "<span><a href='/storeslot?id=" + id +"'>Book your till</a> </span><br>";
 		
