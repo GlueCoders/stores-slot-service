@@ -1,6 +1,7 @@
 package com.gluecoders.tesco.hackathon.storeslots.rest.resources;
 
 import com.gluecoders.tesco.hackathon.storeslots.domain.QRData;
+import com.gluecoders.tesco.hackathon.storeslots.domain.Slot;
 import com.gluecoders.tesco.hackathon.storeslots.domain.Store;
 import com.gluecoders.tesco.hackathon.storeslots.utility.QRCodeGenerator;
 import org.springframework.http.HttpStatus;
@@ -8,7 +9,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/stores")
@@ -34,6 +37,14 @@ public class Stores {
             }
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
+
+    @GetMapping(path = "/{storeId}/slots", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Slot>> getSlotsForStore(@PathVariable("storeId") String storeId){
+        List<Slot> slots = Optional.ofNullable(com.gluecoders.tesco.hackathon.storeslots.data.Stores.getStore(storeId))
+                .map(Store::getSlots)
+                .orElse(new ArrayList<>());
+        return ResponseEntity.ok(slots);
     }
 
 }
