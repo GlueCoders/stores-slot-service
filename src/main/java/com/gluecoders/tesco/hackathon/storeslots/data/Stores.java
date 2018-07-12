@@ -2,6 +2,7 @@ package com.gluecoders.tesco.hackathon.storeslots.data;
 
 import com.gluecoders.tesco.hackathon.storeslots.domain.Slot;
 import com.gluecoders.tesco.hackathon.storeslots.domain.Store;
+import com.gluecoders.tesco.hackathon.storeslots.utility.Random;
 
 import java.util.*;
 
@@ -23,17 +24,14 @@ public class Stores {
         storeMap.put("7f0eb229-4eba-4e20-b375-589a06a6d947", new Store("Waterloo Rd Express", "7f0eb229-4eba-4e20-b375-589a06a6d947", 51.50292, -0.11039, "103-107 Waterloo Rd\nWaterloo\nSE1 8UL"));
 
         List<Slot> slots = new ArrayList<>();
-        slots.add(new Slot("0900-1000hrs", 50));
-        slots.add(new Slot("1000-1100hrs", 50));
-        slots.add(new Slot("1100-1200hrs", 50));
-        slots.add(new Slot("1200-1300hrs", 50));
-        slots.add(new Slot("1300-1400hrs", 50));
-        slots.add(new Slot("1400-1500hrs", 50));
-        slots.add(new Slot("1500-1600hrs", 50));
-        slots.add(new Slot("1600-1700hrs", 50));
-        slots.add(new Slot("1700-1800hrs", 50));
-        slots.add(new Slot("1800-1900hrs", 50));
-        slots.add(new Slot("1900-2000hrs", 50));
+        slots.add(new Slot("1000-1100hrs", Random.randomInt(50)));
+        slots.add(new Slot("1100-1200hrs", Random.randomInt(50)));
+        slots.add(new Slot("1200-1300hrs", Random.randomInt(50)));
+        slots.add(new Slot("1300-1400hrs", Random.randomInt(50)));
+        slots.add(new Slot("1400-1500hrs", Random.randomInt(50)));
+        slots.add(new Slot("1500-1600hrs", Random.randomInt(50)));
+        slots.add(new Slot("1600-1700hrs", Random.randomInt(50)));
+        slots.add(new Slot("1700-1800hrs", Random.randomInt(50)));
 
         storeMap.entrySet()
                 .forEach(entry -> entry.getValue().addSlots(slots));
