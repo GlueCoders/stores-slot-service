@@ -6,7 +6,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-<nav class="navbar navbar-default" style="border-bottom: solid 1px blue;padding-bottom: 10px;">
+<nav class="navbar navbar-default" style="border-bottom: solid 1px blue;padding-bottom: 8px;">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#"><img style="width:140px;" src="../images/header.svg" alt="Tesco Logo"></a>

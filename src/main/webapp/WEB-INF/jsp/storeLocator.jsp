@@ -22,8 +22,8 @@
 }
 /* Set the size of the div element that contains the map */
 #map {	
-	height: 400px; /* The height is 400 pixels */
-	width: 600px; /* The width is the width of the web page */
+	height: 350px; /* The height is 400 pixels */
+	width: 100%; /* The width is the width of the web page */
 	float: left
 }
 </style>
@@ -31,22 +31,28 @@
 <jsp:include page ="header.jsp"/>
 
 <body>
-
-	<h1>Welcome to Store Locator</h1>
-
-	<div id="container">
-		<div id="form">
-			Enter PinCode: <input id="pincode" name="pincode" type="text" value="" /> <br>
-			<br> <input type="button" value="search store" onclick="getStores(12345);" />
-
+	<div class="container">
+	
+	<div class="row" style="padding-bottom:5px">
+		<form class = "form-inline">
+			<div class="form-group">
+			    <label for="pincode">Enter PinCode:</label>
+			    <input type="text" class="form-control" id="pincode" name="pincode">
+			 </div>
+			 <div class="form-group">
+			 	<button type="submit" class="btn btn-default" onclick="getStores(12345);">Search Store</button>
+			 </div>
+		</form>
+			<!-- Enter PinCode: <input id="pincode" name="pincode" type="text" value="" /> <br>
+			<br> <input type="button" value="search store" onclick="getStores(12345);" /> -->
 		</div>
-				
+		<div class="row">
 		<div id="map"></div>
 		
 		<div id="StoreInfo">
 			 
 		</div>
-		
+	</div>
 
 	</div>
 

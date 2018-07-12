@@ -18,5 +18,5 @@
 </style>
 
 <div class="footer">
-	<img src="../images/footer.svg" style="height:50px;">
+	<img src="../images/footer.svg" style="height:30px;">
 </div>
