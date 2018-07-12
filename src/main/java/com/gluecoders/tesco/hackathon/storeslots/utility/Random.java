@@ -20,5 +20,8 @@ public class Random {
         return UUID.randomUUID().toString();
     }
 
+    public static int randomInt(int upperBound){
+        return random.nextInt(upperBound);
+    }
 
 }
