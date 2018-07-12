@@ -1,10 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 
 <style>
 
@@ -54,7 +47,7 @@
 		</div>
 		
 		<div class="col-sm-12 col-lg-4">
-		<div id="StoreInfo">
+		<div id="StoreInfo" style="font-weight:bold;text-align:center;">
 		</div> 
 		</div>
 	</div>
@@ -93,7 +86,7 @@ function initMap() {
 	        url: "/stores/search/" + pincode,
 	        timeout: 600000,
 	        success: function (data) {	   
-	        	alert(data);
+	        	//alert(data);
 	            console.log("response : ", data);
 	           // alert(data);
 	            //var myArr = JSON.parse(data);
@@ -129,9 +122,9 @@ function initMap() {
 	function showStoreInfo(storeName, address, id) {
 		//alert("id: " + id);
 		var storeNameHtml = "<span>" + storeName + "</span><br>";
-		var addressHtml = "<span>" + address + "</span><br>";
+		var addressHtml = "<span>" + address + "</span><br><br>";
 		//var pincodeHtml = "<span>" + pincode + "</span><br>";
-		var chooseStoreLink = "<span><a href='/storeslot?id=" + id +"'>Select Store</a> </span><br>";
+		var chooseStoreLink = "<span><a href='/storeslot?id=" + id +"'>Book your till</a> </span><br>";
 		
 		var finalHtml = storeNameHtml + addressHtml + chooseStoreLink;
 		
