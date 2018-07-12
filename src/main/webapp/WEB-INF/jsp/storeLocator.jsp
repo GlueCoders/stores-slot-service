@@ -83,15 +83,15 @@ function initMap() {
 	    $.ajax({
 	        type: "GET",
 	        contentType: "application/json",
-	        url: "/storelocatorjson",
+	        url: "/stores/" + pincode,
 	        timeout: 600000,
 	        success: function (data) {	   
 	        	//alert(data);
 	            console.log("response : ", data);
 	           // alert(data);
-	            var myArr = JSON.parse(data);
+	            //var myArr = JSON.parse(data);
 	            //alert(myArr[0].name + "  " + myArr[0].geo.latitude);
-	            	            	       
+	              var myArr = data;            	       
 	              var infowindow = new google.maps.InfoWindow();
 
 	              var marker, i;
