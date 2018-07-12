@@ -14,6 +14,8 @@
 }
 </style>
 </head>
+<jsp:include page ="header.jsp"/>
+
 <body>
 
 	<h1>Welcome to Store Locator</h1>
@@ -88,4 +90,6 @@ function initMap() {
 	
 	</script>
 </body>
+
+<jsp:include page ="footer.jsp"/>
 </html>

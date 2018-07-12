@@ -3,7 +3,7 @@ Implementation-Title: store-slots-service
 Implementation-Version: 1.0-SNAPSHOT
 Built-By: vagrant
 Implementation-Vendor-Id: com.gluecoders.tesco.hackathon
-Build-Jdk: 1.8.0_131
+Build-Jdk: 1.8.0_101
 Implementation-URL: http://projects.spring.io/spring-boot/store-slots-
  service/
 Created-By: Maven Integration for Eclipse
