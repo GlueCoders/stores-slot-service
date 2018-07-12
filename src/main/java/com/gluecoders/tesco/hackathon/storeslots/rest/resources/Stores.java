@@ -18,7 +18,7 @@ import java.util.Optional;
 @RequestMapping(path = "/stores")
 public class Stores {
 
-    @GetMapping(path = "/{zipcode}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/search/{zipcode}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Store>> getStores(@PathVariable("zipcode") String zipcode){
         List<Store> stores = com.gluecoders.tesco.hackathon.storeslots.data.Stores.getStores(zipcode);
         return ResponseEntity.ok(stores);
