@@ -15,7 +15,7 @@ public class MockRestController {
 	private static final Logger log = LoggerFactory.getLogger(MockRestController.class.getSimpleName());
 
 	@RequestMapping(value = "/getmockstores", method = RequestMethod.GET)
-	public String fetchPlanogramFromApi() {
+	public String fetchingStoreInfo() {
 		log.info("fetching all stores ");
 		//String pgjson = "{ \"Store A\": { \"Position\": { \"Longitude\": 9.96233, \"Latitude\": 49.80404 } }, \"Store B\": { \"Position\": { \"Longitude\": 6.11499, \"Latitude\": 50.76891 } }, \"Store C\": { \"Position\": { \"Longitude\": 6.80592, \"Latitude\": 51.53548 } }, \"Store D\": { \"Position\": { \"Longitude\": 9.50523, \"Latitude\": 51.31991 } }, \"Store E\": { \"Position\": { \"Longitude\": 9.66089, \"Latitude\": 48.70158 } }, \"Store F\": { \"Position\": { \"Longitude\": 9.93368, \"Latitude\": 53.55608 } }, \"Store G\": { \"Position\": { \"Longitude\": 11.56122, \"Latitude\": 48.14496 } }, \"Store H\": { \"Position\": { \"Longitude\": 13.34253, \"Latitude\": 52.5319 } } }";
 		//String pgjson = "{ \"stores\": [{ \"name\": \"storeA\", \"Longitude\": 9.96233, \"Latitude\": 49.80404 }, { \"name\": \"storeB\", \"Longitude\": 6.11499, \"Latitude\": 50.76891 }, { \"name\": \"storeC\", \"Longitude\": 6.80592, \"Latitude\": 51.53548 }, { \"name\": \"storeD\", \"Longitude\": 9.50523, \"Latitude\": 51.31991 }, { \"name\": \"storeE\", \"Longitude\": 9.66089, \"Latitude\": 48.70158 }] }";
@@ -28,4 +28,17 @@ public class MockRestController {
 		log.info("output json: " + pgjson);
 		return pgjson;
 	}
+	
+	//[{ "timeSlot": "0900-1000hrs", "capacity": 50, "booked": 0 }, { "timeSlot": "1000-1100hrs", "capacity": 50, "booked": 0 }, { "timeSlot": "1100-1200hrs", "capacity": 50, "booked": 0 }, { "timeSlot": "1200-1300hrs", "capacity": 50, "booked": 0 }, { "timeSlot": "1300-1400hrs", "capacity": 50, "booked": 0 }, { "timeSlot": "1400-1500hrs", "capacity": 50, "booked": 0 }, { "timeSlot": "1500-1600hrs", "capacity": 50, "booked": 0 }, { "timeSlot": "1600-1700hrs", "capacity": 50, "booked": 0 }, { "timeSlot": "1700-1800hrs", "capacity": 50, "booked": 0 }, { "timeSlot": "1800-1900hrs", "capacity": 50, "booked": 0 }, { "timeSlot": "1900-2000hrs", "capacity": 50, "booked": 0 }]
+	
+	
+	@RequestMapping(value = "/getmockslots", method = RequestMethod.GET)
+	public String fetchingSlots() {
+		log.info("fetching all slots ");		
+		String slots = "[{ \"timeSlot\": \"0900-1000hrs\", \"capacity\": 50, \"booked\": 0 }, { \"timeSlot\": \"1000-1100hrs\", \"capacity\": 50, \"booked\": 0 }, { \"timeSlot\": \"1100-1200hrs\", \"capacity\": 50, \"booked\": 0 }, { \"timeSlot\": \"1200-1300hrs\", \"capacity\": 50, \"booked\": 0 }, { \"timeSlot\": \"1300-1400hrs\", \"capacity\": 50, \"booked\": 0 }, { \"timeSlot\": \"1400-1500hrs\", \"capacity\": 50, \"booked\": 0 }, { \"timeSlot\": \"1500-1600hrs\", \"capacity\": 50, \"booked\": 0 }, { \"timeSlot\": \"1600-1700hrs\", \"capacity\": 50, \"booked\": 0 }, { \"timeSlot\": \"1700-1800hrs\", \"capacity\": 50, \"booked\": 0 }, { \"timeSlot\": \"1800-1900hrs\", \"capacity\": 50, \"booked\": 0 }, { \"timeSlot\": \"1900-2000hrs\", \"capacity\": 50, \"booked\": 0 }]";
+		log.info("slots: " + slots);
+		return slots;
+		
+	}
+	
 }
