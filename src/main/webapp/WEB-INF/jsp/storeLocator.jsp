@@ -17,9 +17,9 @@
 #form {
 	margin:10px;
 }
-#StoreInfo {
+/* #StoreInfo {
 	margin-left: 620px;
-}
+} */
 /* Set the size of the div element that contains the map */
 #map {	
 	height: 350px; /* The height is 400 pixels */
@@ -34,23 +34,28 @@
 	<div class="container">
 	
 	<div class="row" style="padding-bottom:10px">
-		<form class = "form-inline">
+		<form class = "form-inline" onSubmit= "return false;">
 			<div class="form-group">
 			    <label for="pincode">Enter PinCode:</label>
 			    <input type="text" class="form-control" id="pincode" name="pincode">
 			 </div>
 			 <div class="form-group">
-			 	<button type="submit" class="btn btn-default" onclick="getStores(12345);">Search Store</button>
+			 	<button class="btn btn-default" onclick="getStores(12345);">Search Store</button>
 			 </div>
 		</form>
 			<!-- Enter PinCode: <input id="pincode" name="pincode" type="text" value="" /> <br>
 			<br> <input type="button" value="search store" onclick="getStores(12345);" /> -->
 		</div>
-		<div class="row">
-		<div id="map"></div>
 		
+		<div class="row">
+		
+		<div class="col-sm-12 col-lg-8">
+		<div id="map"></div>
+		</div>
+		
+		<div class="col-sm-12 col-lg-4">
 		<div id="StoreInfo">
-			 
+		</div> 
 		</div>
 	</div>
 
@@ -88,7 +93,7 @@ function initMap() {
 	        url: "/stores/search/" + pincode,
 	        timeout: 600000,
 	        success: function (data) {	   
-	        	//alert(data);
+	        	alert(data);
 	            console.log("response : ", data);
 	           // alert(data);
 	            //var myArr = JSON.parse(data);
