@@ -33,7 +33,7 @@
 <body>
 	<div class="container">
 	
-	<div class="row" style="padding-bottom:5px">
+	<div class="row" style="padding-bottom:10px">
 		<form class = "form-inline">
 			<div class="form-group">
 			    <label for="pincode">Enter PinCode:</label>
