@@ -20,7 +20,7 @@ public class Stores {
         return ResponseEntity.ok(stores);
     }
 
-    @GetMapping(path = "/{storeId}/book", produces = MediaType.IMAGE_PNG_VALUE)
+    @PostMapping(path = "/{storeId}/book", produces = MediaType.IMAGE_PNG_VALUE)
     public ResponseEntity bookSlot(@PathVariable("storeId") String storeID, @RequestParam("slotTime") String slotTime){
         boolean booked = com.gluecoders.tesco.hackathon.storeslots.data.Stores.bookSlot(storeID, slotTime);
         if(booked){
