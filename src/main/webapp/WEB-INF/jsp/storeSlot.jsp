@@ -8,12 +8,12 @@
 
 
 .slot {
-	margin: 10px 35px;
-	background-color: #0000ff2e;
+	margin: 10px 30px;
+    background-color: #0000ff2e;
     text-align: center;
-	border: 1px solid blue;
-	float: left;
-	padding: 10px;
+    border: 1px solid blue;
+    float: left;
+    padding: 8px;
 }
 
 #form {
