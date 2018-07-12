@@ -1,10 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 
 <style>
 #container {
@@ -13,17 +6,12 @@
 	margin: 10px;
 }
 
-#slots {
-	width: 850px;
-	height: 600px;
-	margin: 20px;
-}
 
 .slot {
-	width: 150px;
-	height: 100px;
 	margin: 20px;
-	border: 1px solid;
+	background-color: #0000ff2e;
+    text-align: center;
+	border: 1px solid blue;
 	float: left;
 	padding: 10px;
 }
@@ -36,16 +24,16 @@
 }
 </style>
 </head>
+<jsp:include page ="header.jsp"/>
 <body>
 
-	<h1>Store Token Page</h1>
-
-	<div id="container">
+	<div class="container" style="font-weight:bold">
 		<div id="storeInfo">
 		
 		
-		</div>		 
-		<div id="slots">
+		</div>	
+	 
+		<div class="row" id="slots">
 			<!-- <div class="slot">			
 			</div>		
 			<div class="slot">
@@ -56,7 +44,7 @@
 			</div>
 			<div class="slot">						
 			</div>-->		
-		</div>		
+		</div>
 	</div>
 
 	<script type="text/javascript" src="static/js/jquery/jquery.min.js"></script>
@@ -94,7 +82,7 @@
 		for (i = 0; i < data.slots.length; i++) { 
 			var url = "/stores/" + data.id + "/book?slotTime=" + data.slots[i].timeSlot;
 			//var url = "/slotconfirmation?id=" + data.id + "&timeslot=" + data.slots[i].timeSlot;
-       	 	var slot = "<div class='slot'><span>" + data.slots[i].timeSlot + "</span><br><span>capacity:" + data.slots[i].capacity+ "</span><br><span>booked:" + data.slots[i].booked + "</span><br><span><a href='" + url + "'>Book Slot</a></span></div>";
+       	 	var slot = "<div class='slot col-sm-6 col-md-6 col-lg-3'><a href='" + url + "'><span>" + data.slots[i].timeSlot + "</span><br><span>capacity:" + data.slots[i].capacity+ "</span><br><span>booked:" + data.slots[i].booked + "</span></div>";
        	 	slotsHtml += slot;
         }		
 		$("#slots").html(slotsHtml);
@@ -118,4 +106,5 @@
 	
 	</script>
 </body>
+<jsp:include page ="footer.jsp"/>
 </html>
