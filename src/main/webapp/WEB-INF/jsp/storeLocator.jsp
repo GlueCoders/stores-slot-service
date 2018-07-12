@@ -63,12 +63,12 @@ var map;
 function initMap() {
   // The location of Uluru
   var uluru = {lat: 51.506665, lng: -0.127816};
-  var uluru2 = {lat: -50.76891, lng: 6.11499};
+  
   // The map, centered at Uluru
   map = new google.maps.Map(document.getElementById('map'), {zoom: 13, center: uluru});
   // The marker, positioned at Uluru
   //var marker = new google.maps.Marker({position: uluru, map: map});
-  //var marker2 = new google.maps.Marker({position: uluru2, map: map});
+   
 }
     </script>
 	<!--Load the API from the specified URL
@@ -79,19 +79,13 @@ function initMap() {
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKpewXV2qV0fucwoClofkOjwM67QdHFEE&callback=initMap"></script>
 	<script type="text/javascript" src="static/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript">
-	$(document).ready(function () {
-
-	    //alert("hi");
-
-	});
-	
-	
+	 
 	function getStores(pincode) {
 		//alert("hi");
 	    $.ajax({
 	        type: "GET",
 	        contentType: "application/json",
-	        url: "/stores/" + pincode,
+	        url: "/stores/search/" + pincode,
 	        timeout: 600000,
 	        success: function (data) {	   
 	        	//alert(data);
@@ -116,7 +110,7 @@ function initMap() {
 	                  return function() {
 	                    infowindow.setContent(myArr[i].name);
 	                    infowindow.open(map, marker);
-	                    showStoreInfo(myArr[i].name, myArr[i].formattedAddress, "dummypincode");
+	                    showStoreInfo(myArr[i].name, myArr[i].formattedAddress, myArr[i].id);
 	                  }
 	                })(marker, i)); 
 	            }
@@ -127,11 +121,12 @@ function initMap() {
 	    });
 	}
 	
-	function showStoreInfo(storeName, address, pincode) {
+	function showStoreInfo(storeName, address, id) {
+		//alert("id: " + id);
 		var storeNameHtml = "<span>" + storeName + "</span><br>";
 		var addressHtml = "<span>" + address + "</span><br>";
 		//var pincodeHtml = "<span>" + pincode + "</span><br>";
-		var chooseStoreLink = "<span><a href='/storeslot'>Select Store</a> </span><br>";
+		var chooseStoreLink = "<span><a href='/storeslot?id=" + id +"'>Select Store</a> </span><br>";
 		
 		var finalHtml = storeNameHtml + addressHtml + chooseStoreLink;
 		
