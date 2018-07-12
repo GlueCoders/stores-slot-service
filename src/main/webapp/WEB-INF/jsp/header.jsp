@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <nav class="navbar navbar-default" style="border-bottom: solid 1px blue;padding-bottom: 8px;">
@@ -17,34 +18,8 @@
       <a class="navbar-brand" href="#"><img style="width:140px;" src="../images/header.svg" alt="Tesco Logo"></a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li style="background: inherit;color: black;font-size: 24px;padding-top: 5px;"><a href="/storelocator">Store Locator</a></li>
-    </ul>
+      <li style="background: inherit;text-align: center;color: black;font-size: 24px;padding-top: 5px;">Book My Till</li>
+    </ul>    
   </div>
 </nav>
-
-	<!-- <div id="myRa">
-		<div data-reactroot="" class="ddl">
-			<header class="pageHeader">
-				<nav class="utility_bar clearfix">
-					<div style="height: 30px"></div>
-				</nav>
-				<div class="myrange_desktop_header clearfix">
-					<div class="top_wrapper clearfix">
-						<div class="tesco_logo">
-							<h1 id="myPgAutoLogo">
-								<a href="" class="logo"> <img
-									src="../images/header.svg"
-									alt="Tesco Logo"><span class="subtitle">Slot Booking</span>
-								</a>
-							</h1>
-						</div>
-						<div class="tesco_user">
-							<h1 id="myRangeUserRole">
-								<span class="subtitle">Welcome</span>
-							</h1>
-						</div>
-					</div>
-				</div>
-			</header>
-			</div>
-			</div> -->
+	 

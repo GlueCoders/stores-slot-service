@@ -8,7 +8,7 @@
 
 
 .slot {
-	margin: 20px;
+	margin: 10px 35px;
 	background-color: #0000ff2e;
     text-align: center;
 	border: 1px solid blue;
@@ -20,7 +20,8 @@
 	margin:10px;
 }
 #StoreInfo {
-	margin-left: 100px;
+	/*margin-left: 100px;*/
+	text-align: center;
 }
 </style>
 </head>
@@ -33,7 +34,7 @@
 		
 		</div>	
 	 
-		<div class="row" id="slots">
+		<div  id="slots">
 			<!-- <div class="slot">			
 			</div>		
 			<div class="slot">
@@ -82,7 +83,7 @@
 		for (i = 0; i < data.slots.length; i++) { 
 			var url = "/stores/" + data.id + "/book?slotTime=" + data.slots[i].timeSlot;
 			//var url = "/slotconfirmation?id=" + data.id + "&timeslot=" + data.slots[i].timeSlot;
-       	 	var slot = "<div class='slot col-sm-6 col-md-6 col-lg-3'><a href='" + url + "'><span>" + data.slots[i].timeSlot + "</span><br><span>capacity:" + data.slots[i].capacity+ "</span><br><span>booked:" + data.slots[i].booked + "</span></div>";
+       	 	var slot = "<div class='slot'><a href='" + url + "'><span>" + data.slots[i].timeSlot + "</span><br><span>capacity:" + data.slots[i].capacity+ "</span><br><span>booked:" + data.slots[i].booked + "</span></div>";
        	 	slotsHtml += slot;
         }		
 		$("#slots").html(slotsHtml);

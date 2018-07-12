@@ -14,6 +14,7 @@
    padding-top: 10px;
    background-color:#F8F8F8;
    border-top: blue solid 1px;
+   margin-top:5px;
 }
 </style>
 
