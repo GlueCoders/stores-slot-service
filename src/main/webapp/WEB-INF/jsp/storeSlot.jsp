@@ -8,7 +8,7 @@
 
 
 .slot {
-	margin: 10px 30px;
+	margin: 10px 10px;
     background-color: #0000ff2e;
     text-align: center;
     border: 1px solid blue;
