@@ -27,8 +27,16 @@
 	width: 100%; /* The width is the width of the web page */
 	float: left
 }
+
+#pincode {
+	width:70px
+}
+#startDatepicker {
+	 width:120px;
+}
+ 
 </style>
-</head>
+
 <jsp:include page ="header.jsp"/>
 
 <body>
@@ -40,8 +48,11 @@
 				<label for="pincode">Enter PinCode:</label>
 			</div>-->
 			<div class="div-group">			    
-			    <input type="text"  class="form-control" id="pincode" name="pincode" placeholder="Enter Pincode">
+			    <input type="text"  class="form-control" id="pincode" name="pincode" maxlength="6" placeholder="Enter Pincode">
 			 </div>
+			 <div class="div-group">			    
+			     <input type="text" id="startDatepicker" maxlength="14" class="form-control calendar" placeholder="Shopping Date" readonly="true">
+			 </div>			
 			 <div class="div-group">
 			 	<button class="btn btn-default" onclick="getStores(12345);">Search Store</button>
 			 </div>
@@ -57,27 +68,30 @@
 		</div>
 		
 		<div class="col-sm-12 col-lg-4">
-		<div id="StoreInfo" style="font-weight:bold;text-align:center;">
-		</div> 
+			<!-- <div id="shoppingDate">
+				<input type="text" id="startDatepicker" class="calendar" placeholder="Shopping Date" readonly="true">
+			</div>-->
+			<div id="StoreInfo" style="font-weight:bold;text-align:center;">
+			</div> 		
 		</div>
 	</div>
 
 	</div>
 
 	<script>
-// Initialize and add the map
-var map;
-
-function initMap() {
-  // The location of Uluru
-  var uluru = {lat: 51.506665, lng: -0.127816};
-  
-  // The map, centered at Uluru
-  map = new google.maps.Map(document.getElementById('map'), {zoom: 13, center: uluru});
-  // The marker, positioned at Uluru
-  //var marker = new google.maps.Marker({position: uluru, map: map});
-   
-}
+		// Initialize and add the map
+		var map;
+		
+		function initMap() {
+		  // The location of Uluru
+		  var uluru = {lat: 51.506665, lng: -0.127816};
+		  
+		  // The map, centered at Uluru
+		  map = new google.maps.Map(document.getElementById('map'), {zoom: 13, center: uluru});
+		  // The marker, positioned at Uluru
+		  //var marker = new google.maps.Marker({position: uluru, map: map});
+		   
+		}
     </script>
 	<!--Load the API from the specified URL
     * The async attribute allows the browser to render the page while the API loads
@@ -86,7 +100,35 @@ function initMap() {
     -->
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKpewXV2qV0fucwoClofkOjwM67QdHFEE&callback=initMap"></script>
 	<script type="text/javascript" src="static/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="static/js/jquery/jquery-ui.min.js"></script>
+	 <link href="static/css/datepicker.css" rel="stylesheet" />
 	<script type="text/javascript">
+	
+	$(document).ready(function () {
+		//$("#shoppingDate").hide();
+		
+		$('#startDatepicker').click(function(){
+			$('#ui-datepicker-div').css('clip', 'auto');
+		});
+		
+		var date = new Date();
+		var currentMonth = date.getMonth();
+		var currentDate = date.getDate();
+		var currentYear = date.getFullYear();
+
+		$('#startDatepicker').val("");		 
+		$('#startDatepicker').datepicker({
+			dateFormat : "yy-mm-dd",
+			buttonImage: '../images/datapicker/calendar_icon.png',
+			minDate : new Date(currentYear, currentMonth, currentDate),
+			maxDate : new Date(currentYear, currentMonth, currentDate + 15),
+			showAnim : "fold",
+			onSelect : function(selected) {
+				enableDisableGoBtn();
+			}
+		});
+
+	});
 	 
 	function getStores(pincode) {
 		//alert("hi");
@@ -134,10 +176,10 @@ function initMap() {
 		var storeNameHtml = "<span>" + storeName + "</span><br>";
 		var addressHtml = "<span>" + address + "</span><br>";
 		//var pincodeHtml = "<span>" + pincode + "</span><br>";
-		var chooseStoreLink = "<span><a href='/storeslot?id=" + id +"'>Book your till</a> </span><br>";
-		
+		var chooseStoreLink = "<span><a href='/storeslot?id=" + id +"'>Book your till</a> </span><br>";		
 		var finalHtml = storeNameHtml + addressHtml + chooseStoreLink;
-		
+		//$("#shoppingDate").addClass("showshoppingDate");
+		//$("#shoppingDate").show();
 		$("#StoreInfo").html(finalHtml);
 		
 	}
