@@ -33,7 +33,7 @@ public class ShoppingMilesController {
         }
     }
 
-    @GetMapping(path = "/healthqrcoe", produces = MediaType.IMAGE_PNG_VALUE)
+    @GetMapping(path = "/healthqrcode", produces = MediaType.IMAGE_PNG_VALUE)
     public ResponseEntity getHealthQrcode() {
         try {
             byte[] qrCode = QRCodeGenerator.qrCode(new ShoppingMiles("Ken Adams", "238","89"));
