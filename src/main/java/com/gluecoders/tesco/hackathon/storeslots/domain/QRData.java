@@ -2,7 +2,7 @@ package com.gluecoders.tesco.hackathon.storeslots.domain;
 
 import com.gluecoders.tesco.hackathon.storeslots.utility.Random;
 
-public class QRData {
+public class QRData implements QRFormat {
 
     private final String sequenceId;
     private final String storeId;
@@ -16,7 +16,7 @@ public class QRData {
         this.slotTime = slotTime;
     }
 
-    public String formattedText(){
+    public String qrFormattedText(){
         return "Store Name : " + storeName + "\n"
                 + "StoreID : "+storeId + "\n"
                 + "Slot time : "+slotTime +"\n"

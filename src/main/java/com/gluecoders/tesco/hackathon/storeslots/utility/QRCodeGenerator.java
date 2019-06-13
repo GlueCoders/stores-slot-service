@@ -1,6 +1,6 @@
 package com.gluecoders.tesco.hackathon.storeslots.utility;
 
-import com.gluecoders.tesco.hackathon.storeslots.domain.QRData;
+import com.gluecoders.tesco.hackathon.storeslots.domain.QRFormat;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
@@ -12,10 +12,10 @@ import java.io.IOException;
 
 public class QRCodeGenerator {
 
-    public static byte[] qrCode(QRData qrData) throws WriterException, IOException {
+    public static byte[] qrCode(QRFormat qrData) throws WriterException, IOException {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
-        BitMatrix bitMatrix = qrCodeWriter.encode(qrData.formattedText(), BarcodeFormat.QR_CODE, 128, 128);
+        BitMatrix bitMatrix = qrCodeWriter.encode(qrData.qrFormattedText(), BarcodeFormat.QR_CODE, 128, 128);
         MatrixToImageWriter.writeToStream(bitMatrix, "PNG", stream);
         return stream.toByteArray();
     }
