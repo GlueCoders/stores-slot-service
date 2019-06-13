@@ -60,7 +60,7 @@
 <jsp:include page ="header.jsp"/>
 
 <div id="container" class="container">
-	<h1 class="h1style">Tesco Healthcard Account</h1>
+	<h1 class="h1style">Tesco Carpoolcard Account</h1>
 	<div class="accountInfo">
 		<div id="userImage" class="userImage">
 			<img alt="" src="../images/defaultavtar.png">		
@@ -124,7 +124,7 @@
 	function callHealthCardDataService() {
 		
 		$.ajax({
-            url: "http://localhost:8080/miles/health",
+            url: "http://localhost:8080/miles/carpool",
             data: "", //ur data to be sent to server
             contentType: "application/json; charset=utf-8", 
             type: "GET",

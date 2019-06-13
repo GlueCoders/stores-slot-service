@@ -51,7 +51,7 @@
 			</a>
 		</div>
 		<div id="shopmileCarPoolCardPage" class="shopmileCarPoolCardPage">
-			<a href="/storelocator">
+			<a href="/shopmilecarpoolcard">
 				My Carpool Account
 			</a>
 		</div>	

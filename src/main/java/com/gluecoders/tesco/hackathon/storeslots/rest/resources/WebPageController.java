@@ -43,6 +43,13 @@ public class WebPageController {
 		return "shopmile-healthcard";
 	}
 	
+	@RequestMapping("/shopmilecarpoolcard")
+	public String openShopmileCarpoolCardPage(Map<String, Object> model) {
+		log.info("Welcome to Store Channel App");
+		model.put("message", "abcd");
+		return "shopmile-carpoolcard";
+	}
+	
 	
 	
 	
