@@ -1,5 +1,6 @@
 package com.gluecoders.tesco.hackathon.storeslots.utility;
 
+import java.util.List;
 import java.util.UUID;
 
 public class Random {
@@ -22,6 +23,11 @@ public class Random {
 
     public static int randomInt(int upperBound){
         return random.nextInt(upperBound);
+    }
+
+    public static <T> T randomElement(List<T> elements){
+        int index = random.nextInt(elements.size());
+        return elements.get(index);
     }
 
 }
