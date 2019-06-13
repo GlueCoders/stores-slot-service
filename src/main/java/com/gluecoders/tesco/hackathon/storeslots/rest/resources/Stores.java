@@ -1,18 +1,20 @@
 package com.gluecoders.tesco.hackathon.storeslots.rest.resources;
 
-import com.gluecoders.tesco.hackathon.storeslots.domain.QRData;
-import com.gluecoders.tesco.hackathon.storeslots.domain.Slot;
-import com.gluecoders.tesco.hackathon.storeslots.domain.Store;
-import com.gluecoders.tesco.hackathon.storeslots.utility.QRCodeGenerator;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.ws.Response;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import com.gluecoders.tesco.hackathon.storeslots.domain.QRData;
+import com.gluecoders.tesco.hackathon.storeslots.domain.Store;
+import com.gluecoders.tesco.hackathon.storeslots.utility.QRCodeGenerator;
 
 @RestController
 @RequestMapping(path = "/stores")

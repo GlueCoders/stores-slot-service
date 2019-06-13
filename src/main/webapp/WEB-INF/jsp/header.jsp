@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Book My Till</title>
+<title>Tesco Shopping Miles</title>
 
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
       <a class="navbar-brand" href="#"><img style="width:140px;" src="../images/header.svg" alt="Tesco Logo"></a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li style="background: inherit;text-align: center;color: black;font-size: 24px;padding-top: 5px;">Book My Till</li>
+      <li style="background: inherit;text-align: center;color: black;font-size: 24px;padding-top: 5px; margin-right:10px">My Account</li>
     </ul>    
   </div>
 </nav>

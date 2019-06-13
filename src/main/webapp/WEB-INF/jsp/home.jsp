@@ -9,7 +9,7 @@
 
 <div style="height:65%;width:100%;">
 	<a href="/storelocator">
-		<img src = "../images/home.png" style="width:100%;height:auto;">
+		<img src = "../images/home.png" style="width:60%;height:auto;">
 	</a>
 </div>
 <jsp:include page ="footer.jsp"/>	
