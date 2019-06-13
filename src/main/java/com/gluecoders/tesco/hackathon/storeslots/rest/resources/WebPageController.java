@@ -22,6 +22,38 @@ public class WebPageController {
 		return "hello";
 	}*/
 	
+	@RequestMapping("/shopmilehome")
+	public String openShopmileHomePage(Map<String, Object> model) {
+		log.info("Welcome to Store Channel App");
+		model.put("message", "abcd");
+		return "shopmile-home";
+	}
+	
+	@RequestMapping("/shopmileclubcard")
+	public String openShopmileClubCardPage(Map<String, Object> model) {
+		log.info("Welcome to Store Channel App");
+		model.put("message", "abcd");
+		return "shopmile-clubcard";
+	}
+	
+	@RequestMapping("/shopmilehealthcard")
+	public String openShopmileHealthCardPage(Map<String, Object> model) {
+		log.info("Welcome to Store Channel App");
+		model.put("message", "abcd");
+		return "shopmile-healthcard";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*Book My Till MVC*/
+	
 	@RequestMapping("/home")
 	public String openHomePage(Map<String, Object> model) {
 		log.info("Welcome to Store Channel App");

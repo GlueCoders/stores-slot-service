@@ -24,7 +24,7 @@ public class ShoppingMilesController {
         names.add("Ken Adams");
     }
 
-    @GetMapping(produces = MediaType.IMAGE_PNG_VALUE)
+    @GetMapping(path = "/qrcode", produces = MediaType.IMAGE_PNG_VALUE)
     public ResponseEntity getProfile() {
         try {
             byte[] qrCode = QRCodeGenerator.qrCode(new ShoppingMiles(Random.randomElement(names), Integer.toString(Random.randomInt(1000)), Integer.toString(Random.randomInt(3000))));
