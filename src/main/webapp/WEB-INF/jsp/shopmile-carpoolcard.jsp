@@ -101,7 +101,7 @@
 	function callHealthCardBarCodeService() {
 		
 		$.ajax({
-            url: "http://localhost:8080/miles/qrcode",
+            url: "http://storechannel.herokuapp.com/miles/qrcode",
             data: "", //ur data to be sent to server
             contentType: "image/png;", 
             type: "GET",
@@ -124,7 +124,7 @@
 	function callHealthCardDataService() {
 		
 		$.ajax({
-            url: "http://localhost:8080/miles/carpool",
+            url: "http://storechannel.herokuapp.com/miles/carpool",
             data: "", //ur data to be sent to server
             contentType: "application/json; charset=utf-8", 
             type: "GET",
