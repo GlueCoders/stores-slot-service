@@ -13,6 +13,30 @@ public class ShoppingMiles implements QRFormat {
         this.kms = kms;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPoints() {
+        return points;
+    }
+
+    public void setPoints(String points) {
+        this.points = points;
+    }
+
+    public String getKms() {
+        return kms;
+    }
+
+    public void setKms(String kms) {
+        this.kms = kms;
+    }
+
     @Override
     public String qrFormattedText() {
         return "Name: "+name+"\n"
