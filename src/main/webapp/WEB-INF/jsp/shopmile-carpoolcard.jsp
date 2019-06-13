@@ -81,7 +81,7 @@
 				</div>									
 			</div>
 			<div id="healthCardQRCode" class="healthCardQRCode">
-				<!-- <img alt="" src="../images/sampleQrCode.png"> -->	
+				<img alt="" src="http://storechannel.herokuapp.com/miles/qrcode">
 			</div>
 		</div>
 	</div>
@@ -94,7 +94,7 @@
 	
 	$(document).ready(function () {
 		//alert("hi called ready method");
-		callHealthCardBarCodeService();
+		//callHealthCardBarCodeService();
 		callHealthCardDataService();
 	});
 	
