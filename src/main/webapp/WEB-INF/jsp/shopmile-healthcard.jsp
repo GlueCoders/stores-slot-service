@@ -81,7 +81,7 @@
 				</div>									
 			</div>
 			<div id="healthCardQRCode" class="healthCardQRCode">
-				 <img alt="" src="http://storechannel.herokuapp.com/miles/qrcode">
+				 <img alt="" src="http://storechannel.herokuapp.com/miles/healthqrcode">
 			</div>
 		</div>
 	</div>
