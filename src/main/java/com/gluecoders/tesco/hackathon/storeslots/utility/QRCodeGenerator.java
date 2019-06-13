@@ -15,7 +15,7 @@ public class QRCodeGenerator {
     public static byte[] qrCode(QRFormat qrData) throws WriterException, IOException {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
-        BitMatrix bitMatrix = qrCodeWriter.encode(qrData.qrFormattedText(), BarcodeFormat.QR_CODE, 128, 128);
+        BitMatrix bitMatrix = qrCodeWriter.encode(qrData.qrFormattedText(), BarcodeFormat.QR_CODE, 192, 192);
         MatrixToImageWriter.writeToStream(bitMatrix, "PNG", stream);
         return stream.toByteArray();
     }

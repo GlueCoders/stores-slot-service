@@ -19,15 +19,24 @@ public class ShoppingMilesController {
     private static final List<String> names = new ArrayList<>();
 
     static {
-        names.add("Richard Doe");
-        names.add("John Doe");
         names.add("Ken Adams");
     }
 
-    @GetMapping(path = "/qrcode", produces = MediaType.IMAGE_PNG_VALUE)
-    public ResponseEntity getProfile() {
+    @GetMapping(path = "/carpoolqrcode", produces = MediaType.IMAGE_PNG_VALUE)
+    public ResponseEntity getCarpoolQrcode() {
         try {
-            byte[] qrCode = QRCodeGenerator.qrCode(new ShoppingMiles(Random.randomElement(names), Integer.toString(Random.randomInt(1000)), Integer.toString(Random.randomInt(3000))));
+            byte[] qrCode = QRCodeGenerator.qrCode(new ShoppingMiles("Ken Adams", "927","2487"));
+            return ResponseEntity.ok(qrCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).build();
+        }
+    }
+
+    @GetMapping(path = "/healthqrcoe", produces = MediaType.IMAGE_PNG_VALUE)
+    public ResponseEntity getHealthQrcode() {
+        try {
+            byte[] qrCode = QRCodeGenerator.qrCode(new ShoppingMiles("Ken Adams", "238","89"));
             return ResponseEntity.ok(qrCode);
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,7 +47,7 @@ public class ShoppingMilesController {
     @GetMapping(path = "/health", produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ShoppingMiles> getHealthProfile(){
         try{
-            return ResponseEntity.ok(new ShoppingMiles(Random.randomElement(names), Integer.toString(Random.randomInt(1000)), Integer.toString(Random.randomInt(100))));
+            return ResponseEntity.ok(new ShoppingMiles("Ken Adams", "238","89"));
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(500).build();
@@ -48,7 +57,7 @@ public class ShoppingMilesController {
     @GetMapping(path = "/carpool", produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ShoppingMiles> getCarpoolProfile(){
         try{
-            return ResponseEntity.ok(new ShoppingMiles(Random.randomElement(names), Integer.toString(Random.randomInt(500)), Integer.toString(Random.randomInt(3000))));
+            return ResponseEntity.ok(new ShoppingMiles("Ken Adams", "927","2487"));
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(500).build();
